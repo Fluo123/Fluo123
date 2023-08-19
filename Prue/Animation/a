@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tarjeta de amor</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #ff4f96, #ff007d, #ff2843, #ff002d);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+    
+    .card {
+      width: 200px;
+      height: 200px;
+      border-radius: 8px;
+      cursor: pointer;
+      perspective: 1000px;
+      transform-style: preserve-3d;
+      transition: transform 0.5s ease-in-out;
+      position: relative;
+    }
+    
+    .card.flipped {
+      transform: rotateY(180deg);
+    }
+    
+    .card__front,
+    .card__back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      font-weight: bold;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #1e90ff, #8a2be2);
+      color: #ffffff;
+    }
+    
+    .card__back {
+      transform: rotateY(180deg);
+      background: linear-gradient(135deg, #1e90ff, #8a2be2);
+      text-align: center;
+    }
+    
+    .card::before,
+    .card::after {
+      content: "";
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background-color: #ffffff;
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .card::before {
+      top: 0;
+      left: 0;
+      border-top-left-radius: 8px;
+    }
+    
+    .card::after {
+      bottom: 0;
+      right: 0;
+      border-bottom-right-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card" onmouseenter="this.classList.add('flipped')" onmouseleave="this.classList.remove('flipped')">
+    <div class="card__front">A</div>
+    <div class="card__back">B</div>
+  </div>
+</body>
+</html>
